@@ -1,0 +1,29 @@
+package me.blume.controlplayer.methods;
+
+import org.bukkit.entity.Player;
+
+public class StartControlling {
+
+	
+	ChangeName cn = new ChangeName();
+	ChangeLocations cl = new ChangeLocations();
+	HideAndShowPlayer hasp = new HideAndShowPlayer();
+	HealthAndFood haf = new HealthAndFood();
+	InventoryChange ic = new InventoryChange();
+	ChangeExperience ce = new ChangeExperience();
+
+	public void startControlling(Player controller,Player controlling) {
+		hasp.hidePlayer(controlling);
+		cl.startControlling(controller, controlling);
+		ic.startingInventory(controller, controlling);
+		haf.changeHealthAtStart(controller, controlling);
+		ce.startExperience(controller, controlling);
+	}
+	public void stopControlling(Player controller,Player controlling) {
+		hasp.showPlayer(controlling);
+		cl.stopControlling(controller);
+		haf.changeHealthAtStop(controller, controlling);
+		ic.stopingInventory(controller, controlling);
+		ce.stopExperience(controller, controlling);
+	}
+}
