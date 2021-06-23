@@ -30,18 +30,20 @@ public class ControlPlayerCommand implements CommandExecutor {
 					Player changeTo = Bukkit.getPlayer(args[0]);
 					if(changeTo!=null) {
 						if(!plugin.inControl.containsKey(player.getUniqueId())) {
-							if(!plugin.inControl.containsValue(changeTo.getUniqueId())) {
-								plugin.controllerName = player.getName();
-								plugin.controllingName = args[0];
-								cn.changeName(args[0], player);
-								sc.startControlling(player, changeTo);
-								plugin.inControl.put(player.getUniqueId(), changeTo.getUniqueId());
-							}else {
-								player.sendMessage("That player is already controlled by a player");
+							if(plugin.inControl.size()==0) {
+								if(!plugin.inControl.containsValue(changeTo.getUniqueId())) {
+									plugin.controllerName = player.getName();
+									plugin.controllingName = args[0];
+									cn.changeName(args[0], player);
+									sc.startControlling(player, changeTo);
+									plugin.inControl.put(player.getUniqueId(), changeTo.getUniqueId());
+								}else {
+									player.sendMessage("That player is already controlled by a player");
+								}
 							}
-						}
-						else {
-							player.sendMessage("You are already in a control");
+							else {
+								player.sendMessage("You are already in a control");
+							}
 						}
 					}else {
 						player.sendMessage("Wrong username");
