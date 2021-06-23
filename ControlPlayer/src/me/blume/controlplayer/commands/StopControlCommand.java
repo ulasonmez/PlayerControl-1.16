@@ -32,8 +32,10 @@ public class StopControlCommand implements CommandExecutor{
 						sc.stopControlling(player, controllingPlayer);
 						plugin.inControl.remove(player.getUniqueId());
 					}else {
-						
+						player.sendMessage("You dont control anyone");
 					}
+				}else {
+					player.sendMessage("Wrong usage");
 				}
 			}
 		}

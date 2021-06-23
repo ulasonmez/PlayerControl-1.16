@@ -29,29 +29,6 @@ public class DeathEvent implements Listener{
 	ChangeExperience ce = new ChangeExperience();
 	ChangeName cn = new ChangeName();
 	StartControlling sc = new StartControlling();
-	/*@SuppressWarnings("static-access")
-	@EventHandler
-	public void death(PlayerDeathEvent event){
-		Player controller = event.getEntity();
-		if(plugin.inControl.containsKey(controller.getUniqueId())) {
-			UUID controllingUUID = plugin.inControl.get(controller.getUniqueId());
-			Player controlling = Bukkit.getPlayer(controllingUUID);
-			cn.changeName(plugin.controllerName, controller);
-			hasp.showPlayer(controlling);
-			controller.getInventory().clear();
-			controlling.setHealth(0);
-			controller.setHealth(Main.healthLevetlController);
-			controller.teleport(Main.getBackToLocationController);
-			controller.setFoodLevel(Main.foodLevelController);
-			controller.setExp(Main.experienceController);
-			controller.setLevel(Main.levelController);
-
-			controller.getInventory().clear();
-			controller.getInventory().setContents(Main.inventoryController);
-			controller.updateInventory();
-			plugin.inControl.remove(controller.getUniqueId());
-		}
-	}*/
 	@SuppressWarnings("static-access")
 	@EventHandler
 	public void predictingDeath(EntityDamageEvent event) {
