@@ -27,6 +27,7 @@ public class Main extends JavaPlugin{
 	public static ArrayList<PotionEffect> potionController = new ArrayList<PotionEffect>();
 	public static ArrayList<PotionEffect> potionControlling = new ArrayList<PotionEffect>();
 	public static int fireticksController,fireticksControlling;
+	public static int airController,airControlling;
 	StartControlling sc = new StartControlling();
 	@Override
 	public void onEnable() {

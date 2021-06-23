@@ -13,6 +13,7 @@ public class StartControlling {
 	ChangeExperience ce = new ChangeExperience();
 	ChangePotions cp = new ChangePotions();
 	ChangeFire cf = new ChangeFire();
+	ChangeAir ca = new ChangeAir();
 	public void startControlling(Player controller,Player controlling) {
 		hasp.hidePlayer(controlling);
 		cl.startControlling(controller, controlling);
@@ -21,6 +22,7 @@ public class StartControlling {
 		ce.startExperience(controller, controlling);
 		cp.startPotions(controller, controlling);
 		cf.startFire(controller, controlling);
+		ca.startAir(controller, controlling);
 	}
 	public void stopControlling(Player controller,Player controlling) {
 		hasp.showPlayer(controlling);
@@ -30,5 +32,6 @@ public class StartControlling {
 		ce.stopExperience(controller, controlling);
 		cp.stopPotions(controller, controlling);
 		cf.stopFire(controller, controlling);
+		ca.stopAir(controller, controlling);
 	}
 }
