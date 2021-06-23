@@ -11,13 +11,14 @@ public class StartControlling {
 	HealthAndFood haf = new HealthAndFood();
 	InventoryChange ic = new InventoryChange();
 	ChangeExperience ce = new ChangeExperience();
-
+	ChangePotions cp = new ChangePotions();
 	public void startControlling(Player controller,Player controlling) {
 		hasp.hidePlayer(controlling);
 		cl.startControlling(controller, controlling);
 		ic.startingInventory(controller, controlling);
 		haf.changeHealthAtStart(controller, controlling);
 		ce.startExperience(controller, controlling);
+		cp.startPotions(controller, controlling);
 	}
 	public void stopControlling(Player controller,Player controlling) {
 		hasp.showPlayer(controlling);
@@ -25,5 +26,6 @@ public class StartControlling {
 		haf.changeHealthAtStop(controller, controlling);
 		ic.stopingInventory(controller, controlling);
 		ce.stopExperience(controller, controlling);
+		cp.stopPotions(controller, controlling);
 	}
 }

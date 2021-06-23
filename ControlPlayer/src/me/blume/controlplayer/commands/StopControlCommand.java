@@ -25,11 +25,15 @@ public class StopControlCommand implements CommandExecutor{
 		if(sender instanceof Player) {
 			Player player = (Player) sender;
 			if(label.equals("stopcontrol")) {
-				if(plugin.inControl.containsKey(player.getUniqueId())) {
-					cn.changeName(plugin.controllerName, player);
-					Player controllingPlayer = Bukkit.getPlayer(plugin.controllingName);
-					sc.stopControlling(player, controllingPlayer);
-					plugin.inControl.remove(player.getUniqueId());
+				if(args.length==0) {
+					if(plugin.inControl.containsKey(player.getUniqueId())) {
+						cn.changeName(plugin.controllerName, player);
+						Player controllingPlayer = Bukkit.getPlayer(plugin.controllingName);
+						sc.stopControlling(player, controllingPlayer);
+						plugin.inControl.remove(player.getUniqueId());
+					}else {
+						
+					}
 				}
 			}
 		}
