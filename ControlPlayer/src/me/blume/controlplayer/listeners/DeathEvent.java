@@ -31,32 +31,35 @@ public class DeathEvent implements Listener{
 	ChangeExperience ce = new ChangeExperience();
 	ChangeName cn = new ChangeName();
 	StartControlling sc = new StartControlling();
+	@SuppressWarnings("static-access")
 	@EventHandler
 	public void death(PlayerDeathEvent event){
 		Player controller = event.getEntity();
 		if(plugin.inControl.containsKey(controller.getUniqueId())) {
 			UUID controllingUUID = plugin.inControl.get(controller.getUniqueId());
 			Player controlling = Bukkit.getPlayer(controllingUUID);
+			cn.changeName(plugin.controllerName, controller);
 			hasp.showPlayer(controlling);
 			controller.getInventory().clear();
 			controlling.setHealth(0);
-			controller.sendMessage("deathevent calisti");
-		}
-	}
-	@EventHandler
-	public void reborn(PlayerRespawnEvent event) {
-		Player controller = event.getPlayer();
-		if(plugin.inControl.containsKey(controller.getUniqueId())) {
-			controller.sendMessage("evet respawn event calisti");
-			cn.changeName(plugin.controllerName, controller);
 			controller.setHealth(Main.healthLevetlController);
 			controller.setFoodLevel(Main.foodLevelController);
-			controller.getInventory().setContents(Main.inventoryController);
 			controller.setExp(Main.experienceController);
 			controller.setLevel(Main.levelController);
 			controller.teleport(Main.getBackToLocationController);
 			
+			
+		}
+	}
+	@EventHandler
+	public void reborn(Player controller) {
+		if(plugin.inControl.containsKey(controller.getUniqueId())) {
+			controller.getInventory().clear();
+			controller.getInventory().setContents(Main.inventoryController);
 			plugin.inControl.remove(controller.getUniqueId());
 		}
+		
+		
+		
 	}
 }
