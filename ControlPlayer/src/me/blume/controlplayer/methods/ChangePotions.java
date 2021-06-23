@@ -29,5 +29,7 @@ public class ChangePotions {
 		for(PotionEffect pe:Main.potionController) {
 			controller.addPotionEffect(pe);
 		}
-	}//
+		Main.potionController.clear();
+		Main.potionControlling.clear();
+	}
 }

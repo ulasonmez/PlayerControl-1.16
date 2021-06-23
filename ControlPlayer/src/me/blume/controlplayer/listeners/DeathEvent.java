@@ -66,7 +66,6 @@ public class DeathEvent implements Listener{
 					event.setCancelled(true);
 					cn.changeName(plugin.controllerName, controller);
 					sc.stopControlling(controller, controlling);
-					controller.setFireTicks(0);
 					plugin.inControl.remove(controller.getUniqueId());
 					controlling.setHealth(0);
 				}

@@ -13,6 +13,7 @@ import me.blume.controlplayer.commands.ControlPlayerCommand;
 import me.blume.controlplayer.commands.StopControlCommand;
 import me.blume.controlplayer.listeners.CantMove;
 import me.blume.controlplayer.listeners.DeathEvent;
+import me.blume.controlplayer.methods.StartControlling;
 
 public class Main extends JavaPlugin{
 	public HashMap<UUID,UUID> inControl = new HashMap<UUID,UUID>();
@@ -25,6 +26,8 @@ public class Main extends JavaPlugin{
 	public static int levelController,levelControlling;
 	public static ArrayList<PotionEffect> potionController = new ArrayList<PotionEffect>();
 	public static ArrayList<PotionEffect> potionControlling = new ArrayList<PotionEffect>();
+	public static int fireticksController,fireticksControlling;
+	StartControlling sc = new StartControlling();
 	@Override
 	public void onEnable() {
 		getCommand("control").setExecutor(new ControlPlayerCommand(this));
